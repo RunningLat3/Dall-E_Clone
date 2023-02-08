@@ -7,11 +7,11 @@ interface FormFieldProps {
   placeholder: string;
   value?: any;
   handleChange?: (e: any) => any;
-  isSurpriseMe?: boolean;
+  isSurpriseMe?: false | boolean;
   handleSurpriseMe?: (e: any) => any;
 }
 
-const FormField: FC<FormFieldProps> = ({ isSurpriseMe = false, ...props }) => {
+const FormField: FC<FormFieldProps> = ({ ...props }) => {
   return (
     <div>
       <div className="flex items-center gap-2 mb-2">
@@ -21,7 +21,7 @@ const FormField: FC<FormFieldProps> = ({ isSurpriseMe = false, ...props }) => {
         >
           {props.labelName}
         </label>
-        {isSurpriseMe && (
+        {props.isSurpriseMe && (
           <button
             type="button"
             onClick={props.handleSurpriseMe}
